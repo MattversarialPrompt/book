@@ -1381,15 +1381,10 @@ generator, it's exhausted.
 
 ## Type Hierarchies
 
-The type system forms a graph rather than a simple tree. This means
+The type system forms a lattice rather than a simple tree. This means
 types can have multiple supertypes, though multiple inheritance is
 currently limited to interfaces. Understanding these relationships
 helps you design flexible, reusable code.
-
-At the top of the hierarchy, `any` serves as the universal supertype.
-The `void` type is another universal supertype alongside `any`. Every
-type is a subtype of `void`, meaning `void` accepts all values. This
-is fundamentally different from `false`, the true empty/bottom type.
 
 ### Understanding void
 
