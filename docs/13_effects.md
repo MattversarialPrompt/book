@@ -129,7 +129,7 @@ error (cannot have two exclusive effects).
 
 The following restrictions are in effect:
 
-- <suspends> and <decides> cannot be combined on the same function. A
+- `<suspends>` and `<decides>` cannot be combined on the same function. A
   function cannot be both asynchronous and failable using these
   mechanisms—you must choose one or the other.
 - `<converges>` is only allowed on `<native>` functions—you cannot
