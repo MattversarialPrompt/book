@@ -1944,47 +1944,6 @@ SpawnWave(Enemies:[]enemy_class)<suspends>:void =
         Sleep(0.5)  # Half second between spawns
 ```
 
-## Error Handling in Concurrent Code
-
-### Failure Propagation
-
-Failures in concurrent expressions propagate differently:
-
-<!--versetest
-OperationThatSucceeds()<suspends>:void={}
-OperationThatFails()<suspends>:void={}
-AnotherOperation()<suspends>:void={}
-F()<suspends>:void={
-sync:
-    OperationThatSucceeds()
-    OperationThatFails()  # Failure occurs
-    AnotherOperation()    # Still executes
-# Entire sync fails after all complete
-
-# In race: winner determines success/failure
-race:
-    OperationThatFails()   # If this wins, race fails
-    OperationThatSucceeds() # If this wins, race succeeds
-}
-<#
--->
-<!-- 75 -->
-```verse
-# In sync: all expressions complete, then failure propagates
-sync:
-    OperationThatSucceeds()
-    OperationThatFails()  # Failure occurs
-    AnotherOperation()    # Still executes
-# Entire sync fails after all complete
-
-# In race: winner determines success/failure
-race:
-    OperationThatFails()   # If this wins, race fails
-    OperationThatSucceeds() # If this wins, race succeeds
-```
-<!-- #> -->
-
-
 ## Limitations and Considerations
 
 ### Iteration Restrictions
