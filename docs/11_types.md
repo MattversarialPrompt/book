@@ -1487,21 +1487,16 @@ have their own subtyping rules based on their element types.
 Understanding variance is crucial for working with generic
 containers. Arrays and options are covariant in their element type -
 if A is a subtype of B, then `[]A` is a subtype of `[]B` and `?A` is a
-subtype of `?B`. This allows natural code like (assuming that Verse
-had a `nat` type):
+subtype of `?B`. This allows natural code like:
 
-
-TODO change to RATIONAL
-
-<!--NoCompile-->
 <!-- 89 -->
 ```verse
-ProcessNumbers(Numbers:[]int):void =
+ProcessNumbers(Numbers:[]rational):void =
     for (N : Numbers):
         Print("{N}")
 
-NaturalNumbers:[]nat = array{1, 2, 3}
-ProcessNumbers(NaturalNumbers)  # Works due to covariance
+Numbers:[]int = array{1, 2, 3}
+ProcessNumbers(Numbers)  # Works due to covariance
 ```
 
 Functions exhibit more complex variance. They're contravariant in

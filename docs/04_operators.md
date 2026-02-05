@@ -154,7 +154,7 @@ if (Level >= 10 and Score > 1000):
 
 The following types support equality comparison operations (`=` and `<>`):
 
-- Numeric types: `int`, `nat`, `float`, `rational`
+- Numeric types: `int`, `float`, `rational`
 - Boolean: `logic`
 - Text: `string`, `char`, `char32`
 - Enumerations: All `enum` types

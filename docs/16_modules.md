@@ -630,14 +630,14 @@ The following example of shows how evolution works:
 <!-- 22 -->
 ```verse
 # Initial publication
-Thing<public>:int = 666
+Thing<public>:rational = 1/3
 
 # Valid updates:
 # - Change the value (not the type)
-Thing<public>:int = 10
+Thing<public>:rational = 10/3
 
 # - Make the type more specific (subtype)
-Thing<public>:nat = 20  # nat is a subtype of int
+Thing<public>:int = 20  # nat is a subtype of int
 
 # Invalid updates (would be rejected):
 # - Remove the member
