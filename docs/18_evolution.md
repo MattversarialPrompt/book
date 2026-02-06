@@ -195,6 +195,12 @@ For **non-final instance methods**:
 - **Cannot convert between normal functions and constructors.** These are fundamentally different callable entities with different calling conventions.
 - **Cannot convert between functions and parametric types.** A function cannot become a type parameter or vice versa.
 
+**Function body:**
+
+- **Cannot change the body of transparent functions.** Verification of callers might depend on the function body of transparent functions, so changes could break callers.
+- **Cannot change the body of opaque functions without the `<reads>` effect.** This is to ensure that `NonReadsFunction()=NonReadsFunction()` even when code is evolving.
+- **Can change the body of opaque functions that have the `<reads>` effect.** Code evolution can be observed by the `<reads>` effect.
+
 **Understanding Variance:**
 
 The asymmetry in these rules reflects **variance** in type theory:
